@@ -21,7 +21,7 @@ class MainController extends Controller
             'check_multiplication' => 'required_without_all:check_sum,check_subtraction,check_division',
             'check_division' => 'required_without_all:check_sum,check_subtraction,check_multiplication',
 
-            'number_one' => 'required|integer|min:0|max:999',
+            'number_one' => 'required|integer|min:0|max:999|lt:number_two',
             'number_two' => 'required|integer|min:0|max:999',
             'number_exercises' => 'required|integer|min:5|max:50'
         ]);
