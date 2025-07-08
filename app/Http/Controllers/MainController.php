@@ -75,14 +75,14 @@ class MainController extends Controller
         echo '<hr>';
 
         foreach ($exercises as $exercise) {
-            echo '<h2><small>' . str_pad($exercise['exercise_number'], 2, "0", STR_PAD_LEFT) . ' >> </small> ' . $exercise['exercise'] . '</h2>';
+            echo '<h2><small>' . $exercise['exercise_number'] . ' >> </small> ' . $exercise['exercise'] . '</h2>';
         }
 
         // solutions
         echo '<hr>';
         echo '<small>Solutions</small><br>';
         foreach ($exercises as $exercise) {
-            echo '<small>' . str_pad($exercise['exercise_number'], 2, "0", STR_PAD_LEFT) . ' >>  ' . $exercise['solution'] . '</small><br>';
+            echo '<small>' . $exercise['exercise_number'] . ' >>  ' . $exercise['solution'] . '</small><br>';
         }
     }
 
@@ -132,7 +132,7 @@ class MainController extends Controller
 
         return [
             'operation' => $operation,
-            'exercise_number' => $index,
+            'exercise_number' => str_pad($index, 2, "0", STR_PAD_LEFT),
             'exercise' => $exercise,
             'solution' => "$exercise $solution"
         ];
