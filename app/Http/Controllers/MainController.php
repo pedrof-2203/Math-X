@@ -26,7 +26,14 @@ class MainController extends Controller
             'number_exercises' => 'required|integer|min:5|max:50'
         ]);
 
-        dd($request->all());
+        // get selected operations
+        $operations = [];
+        $operations[] = $request->check_sum ? 'sum' : '';
+        $operations[] = $request->check_subtraction ? 'subtraction' : '';
+        $operations[] = $request->check_multiplication ? 'multiplication' : '';
+        $operations[] = $request->check_division ? 'division' : '';
+
+        //dd($request->all());
     }
 
     public function printExercises()
