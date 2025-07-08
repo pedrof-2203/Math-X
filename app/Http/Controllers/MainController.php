@@ -63,7 +63,27 @@ class MainController extends Controller
 
     public function printExercises()
     {
-        echo "Exibir Exercícios";
+        // check if exercises are in session
+        if (!session()->has('exercises')) {
+            return redirect()->route('home');
+        }
+
+        $exercises = session('exercises');
+
+        echo '<pre>';
+        echo '<h1>Math Problems (Math-X)</h1>';
+        echo '<hr>';
+
+        foreach ($exercises as $exercise) {
+            echo '<h2><small>' . str_pad($exercise['exercise_number'], 2, "0", STR_PAD_LEFT) . ' >> </small> ' . $exercise['exercise'] . '</h2>';
+        }
+
+        // solutions
+        echo '<hr>';
+        echo '<small>Solutions</small><br>';
+        foreach ($exercises as $exercise) {
+            echo '<small>' . str_pad($exercise['exercise_number'], 2, "0", STR_PAD_LEFT) . ' >>  ' . $exercise['solution'] . '</small><br>';
+        }
     }
 
     public function exportExercises()
