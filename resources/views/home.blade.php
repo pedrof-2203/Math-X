@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ env('APP_NAME') }}</title>
+    <title>Math-X</title>
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/png">
     <!-- bootstrap -->
@@ -106,11 +106,12 @@
     </form>
 
     {{-- validation error --}}
-    @if($errors->any())
+    @if ($errors->any())
         <div class="container">
             <div class="row">
                 <div class="alert alert-danger text-center mt-3">
-                    Please select at least one operation. Products must be numbers between 0 and 999. Number of exercises must be numbers between 5 and 50.
+                    Please select at least one operation. Products must be numbers between 0 and 999. Number of
+                    exercises must be numbers between 5 and 50.
                 </div>
             </div>
         </div>
