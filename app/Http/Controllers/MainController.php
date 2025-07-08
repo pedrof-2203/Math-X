@@ -33,6 +33,8 @@ class MainController extends Controller
         $operations[] = $request->check_multiplication ? 'multiplication' : '';
         $operations[] = $request->check_division ? 'division' : '';
 
+        // get number range
+
         //dd($request->all());
     }
 
