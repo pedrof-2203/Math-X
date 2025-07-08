@@ -82,13 +82,36 @@ class MainController extends Controller
         echo '<hr>';
         echo '<small>Solutions</small><br>';
         foreach ($exercises as $exercise) {
-            echo '<small>' . $exercise['exercise_number'] . ' >>  ' . $exercise['solution'] . '</small><br>';
+            echo '<small>' . $exercise['exercise_number'] . ' >> ' . $exercise['solution'] . '</small><br>';
         }
     }
 
     public function exportExercises()
     {
-        echo "Exportar Exercícios em txt";
+        // check if exercises are in session
+        if (!session()->has('exercises')) {
+            return redirect()->route('home');
+        }
+
+        // create file for download
+        $exercises = session('exercises');
+        $filename = 'exercises_' . 'Math-X' . '_' . date('YmdHis') . '.txt';
+
+        $content = 'Math Problems (Math-X)' . "\n\n";
+        foreach ($exercises as $exercise) {
+            $content .= $exercise['exercise_number'] . ' > ' . $exercise['exercise'] . "\n";
+        }
+
+        // solutions
+        $content .= "\n";
+        $content .= "Solutions\n" . str_repeat('-', 20) . "\n";
+        foreach ($exercises as $exercise) {
+            $content .= $exercise['exercise_number'] . ' > ' . $exercise['solution'] . "\n";
+        }
+
+        return response($content)
+            ->header('Content-Type', 'text/plain')
+            ->header('Content-Disposition', 'attachment; filename="' . $filename . '"');
     }
 
     private function generateExercise($index, $operations, $min, $max): array
