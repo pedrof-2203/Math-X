@@ -1,5 +1,5 @@
 ## 📐 Math-X
-This is a project I've built through the Laravel 11 & 12 course by João Ribeiro on Udemy.
+This is a project I've built through the Laravel 11 & 12 course by João Ribeiro on Udemy. <br>
 Developed solely for educational purposes.
 www.udemy.com/course/laravel-11-framework-ecossistema-e-projetos-web/
 
