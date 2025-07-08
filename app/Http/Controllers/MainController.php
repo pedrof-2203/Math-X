@@ -34,6 +34,11 @@ class MainController extends Controller
         $operations[] = $request->check_division ? 'division' : '';
 
         // get number range
+        $min = $request->number_one;
+        $max = $request->number_two;
+
+        // get number of exercises
+        $numberExercises = $request->number_exercices;
 
         //dd($request->all());
     }
