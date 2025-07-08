@@ -66,7 +66,7 @@
                 <!-- Range  -->
                 <div class="col">
 
-                    <p class="text-info">Range</p>
+                    <p class="text-info">Products</p>
 
                     <div class="mb-3">
                         <label for="number_one">Min:</label>
@@ -82,7 +82,7 @@
 
                 </div>
 
-                <!-- No of exercies & Submit -->
+                <!-- No. of Exercises & Submit -->
                 <div class="col">
 
                     <p class="text-info">Number of Exercises</p>
@@ -105,9 +105,20 @@
 
     </form>
 
+    {{-- validation error --}}
+    @if($errors->any())
+        <div class="container">
+            <div class="row">
+                <div class="alert alert-danger text-center mt-3">
+                    Please select at least one operation. Products must be numbers between 0 and 999. Number of exercises must be numbers between 5 and 50.
+                </div>
+            </div>
+        </div>
+    @endif
+
     <!-- footer -->
     <footer class="text-center mt-5">
-        <p class="text-secondary">MathX &copy; <span class="text-info">2025</span></p>
+        <p class="text-secondary">MathX &copy; <span class="text-info">{{ date('Y') }}</span></p>
     </footer>
 
     <!-- bootstrap -->
